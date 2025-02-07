@@ -26,7 +26,8 @@ project/
 │   ├── __init__.py          # Test package initializer
 │   ├── test_repositories.py # Tests for the repository layer
 │   ├── test_services.py     # Tests for the service layer
-
+|_
+```
 ## Setup
 
 Follow these steps to set up the project:

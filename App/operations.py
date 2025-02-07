@@ -1,5 +1,5 @@
 from app import db
-from app.models import Task
+from app.databasedef import Task
 from datetime import datetime
 
 class TaskRepository:

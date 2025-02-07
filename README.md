@@ -55,9 +55,48 @@ Follow these steps to set up the project:
     ```sh
     flask run
     ```
-**The API will be available at your localhost
+**The API will be available at your localhost**
 
 Now, you should have the application running and ready for development or testing.
 
+# API EndPoints
+You can test the API endpoints using Postman and create your own requests using the details below.
+### Create Task
+1. URL: add local host URL
+2. Method: POST
+3. Headers: Content-Type: application/json
+4. Body: (raw JSON)
+```sh
+  {
+  "title": "New Task",
+  "description": "Task description",
+  "status": "PENDING"
+}
+```
+**Instructions in Postman:**
 
+- Open Postman and click on New > Request.
+- Set the request method to POST and enter the local Host URL [Before this Make sure the flask Application is running].
+- In the Headers tab, add a header: Content-Type with value application/json.
+- In the Body tab, select raw and paste the JSON example above.
+- Click Send to submit the request.
 
+### Get all Tasks
+To get all the Tasks just change the METHOD to GET
+
+### Update Task
+To updata task add the task_id in the URL of which you want to change the details for eg. http://localhost:5000/tasks/1
+and change the METHOD to PUT
+```sh
+{
+  "title": "Updated Task",
+  "description": "Updated Description",
+  "status": "COMPLETED"
+}
+```
+## To Run the Test run the pytest command in command prompt
+## To get the Coverage report run
+```sh
+coverage run -m pytest
+coverage report -m
+```

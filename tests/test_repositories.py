@@ -1,6 +1,6 @@
 import pytest
 from app import create_app, db
-from app.operations import TaskRepository
+from app.repositories import TaskRepository
 from app.databasedef import Task
 
 @pytest.fixture

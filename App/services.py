@@ -1,4 +1,4 @@
-from app.operations import TaskRepository
+from app.repositories import TaskRepository
 
 class TaskService:
     def __init__(self):

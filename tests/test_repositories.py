@@ -52,7 +52,6 @@ def test_delete_task(repo):
     assert result is True
     assert repo.get_by_id(task.id) is None
 
-# Additional tests to cover branches for non-existent tasks:
 def test_update_nonexistent_task(repo):
     # Update a task that doesn't exist should return None
     result = repo.update(999, {"title": "New Title"})
@@ -62,3 +61,25 @@ def test_delete_nonexistent_task(repo):
     # Deleting a non-existent task should return False.
     result = repo.delete(999)
     assert result is False
+
+def test_get_all_tasks_empty(repo):
+    tasks = repo.get_all()
+    assert tasks == []
+
+def test_update_task_no_changes(repo):
+    task = repo.create(title="No Changes", description="Desc", status="PENDING")
+    updated = repo.update(task.id, {})
+    # Expect no changes
+    assert updated is not None
+    assert updated.title == "No Changes"
+    assert updated.description == "Desc"
+    assert updated.status == "PENDING"
+
+def test_update_task_partial_fields(repo):
+    task = repo.create(title="Partial Update", description="Desc", status="PENDING")
+    updated = repo.update(task.id, {"status": "COMPLETED"})
+    assert updated is not None
+    assert updated.title == "Partial Update"  # unchanged
+    assert updated.status == "COMPLETED"
+
+

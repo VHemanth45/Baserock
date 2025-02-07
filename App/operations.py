@@ -17,7 +17,7 @@ class TaskRepository:
         return Task.query.all()
 
     def get_by_id(self, task_id):
-        return Task.query.get(task_id)
+        return db.session.get(Task, task_id)
 
     def update(self, task_id, data):
         task = self.get_by_id(task_id)

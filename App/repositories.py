@@ -34,3 +34,6 @@ class TaskRepository:
             db.session.commit()
             return True
         return False
+
+    def get_all_paginated(self, page, per_page):
+        return Task.query.paginate(page=page, per_page=per_page, error_out=False)

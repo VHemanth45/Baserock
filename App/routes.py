@@ -21,8 +21,18 @@ def create_task():
 
 @tasks_blueprint.route('/tasks', methods=['GET'])
 def get_all_tasks():
-    tasks = task_service.get_all_tasks()
-    return jsonify([task.to_dict() for task in tasks])
+    page = request.args.get('page', default = 1, type=int)
+    per_page = request.args.get('per_page', default = 10, type=int)
+    pagination = task_service.get_all_tasks_paginated(page, per_page)
+
+    response = {
+        "total": pagination.total,
+        'tasks': [task.to_dict() for task in pagination.items],
+        'page': pagination.page,
+        'per_page': pagination.per_page,
+        'total_pages': pagination.pages,
+    }
+    return jsonify(response),HTTPStatus.OK
 
 @tasks_blueprint.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):

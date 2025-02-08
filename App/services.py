@@ -24,3 +24,6 @@ class TaskService:
 
     def delete_task(self, task_id):
         return self.repository.delete(task_id)
+    
+    def get_all_tasks_paginated(self, page, per_page):
+        return self.repository.get_all_paginated(page, per_page)

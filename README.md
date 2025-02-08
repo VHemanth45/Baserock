@@ -68,6 +68,7 @@ You can test the API endpoints using Postman and create your own requests using 
 4. Body: (raw JSON)
 ```sh
   {
+  "id" : 1
   "title": "New Task",
   "description": "Task description",
   "status": "PENDING"
@@ -94,9 +95,15 @@ and change the METHOD to PUT
   "status": "COMPLETED"
 }
 ```
+### Delete a Task
+To delete a Task change Method to DELETE and then  past the URL and add the task_id at the end of the URL for eg: http://localhost:5000/tasks/{task_id}
+** For this You get a 204 NO CONTENT**
 ## To Run the Test run the pytest command in command prompt
 ## To get the Coverage report run
 ```sh
 coverage run -m pytest
 coverage report -m
 ```
+![image](https://github.com/user-attachments/assets/5c36a6f9-2c6f-455f-8138-82418b2a4013)
+![image](https://github.com/user-attachments/assets/6b9ea5f1-7552-42ba-9e3f-8e6380f4dadf)
+

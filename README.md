@@ -34,8 +34,8 @@ Follow these steps to set up the project:
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/task-management.git
-    cd task-management
+    git clone https://github.com/VHemanth45/Baserock.git
+    cd Baserock
     ```
 
 2. **Create a virtual environment:**
